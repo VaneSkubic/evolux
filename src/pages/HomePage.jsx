@@ -1,4 +1,5 @@
 import { useSignOut, useAuthHeader } from 'react-auth-kit'
+import Feed from '../components/Feed'
 
 const HomePage = () => {
 
@@ -27,6 +28,7 @@ const HomePage = () => {
         <div className='w-full h-full flex flex-row'>
             Home page
             <button onClick={logOut}>Log out</button>
+            <Feed />
         </div>
     )
 }
