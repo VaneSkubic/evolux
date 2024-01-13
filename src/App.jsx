@@ -7,7 +7,7 @@ import { RequireAuth } from 'react-auth-kit'
 function App() {
   return (
     <div className="App h-screen">
-      <BrowserRouter basename="/evolux">
+      <BrowserRouter>
         <Routes>
           <Route index element={
             <RequireAuth loginPath="/login">

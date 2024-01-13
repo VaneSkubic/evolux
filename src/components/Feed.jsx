@@ -42,6 +42,7 @@ const Feed = () => {
                     id={keyword.posts[0].id}
                     caption={keyword.posts[0].caption}
                     image={keyword.posts[0].media?.media_url}
+                    isLiked={keyword.posts[0].is_liked}
                 />
             })
             }
