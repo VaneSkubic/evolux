@@ -5,6 +5,9 @@ import Registration from "./pages/Registration";
 import { RequireAuth } from 'react-auth-kit'
 
 function App() {
+
+  // Deploy test commit 
+
   return (
     <div className="App h-screen">
       <BrowserRouter>
