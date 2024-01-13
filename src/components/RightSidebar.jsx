@@ -27,9 +27,9 @@ const RightSidebar = () => {
     }
 
     return (
-        <div className='bg-neutral-100 border-l-2 w-1/3 flex py-16 justify-center'>
+        <div className='bg-neutral-700 w-1/3 flex py-16 justify-center'>
             <div className='w-2/3 flex flex-col gap-4 justify-between'>
-                <button onClick={logOut} className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'>
+                <button onClick={logOut} className='bg-blue-500 text-white hover:bg-neutral-100 font-semibold hover:text-blue-700 py-2 px-4 border border-blue-500 hover:border-transparent rounded'>
                     Log out
                 </button>
             </div>

@@ -10,21 +10,25 @@ const Search = ({ setHabitId, setHabitName, id }) => {
 
     const searchHabits = async () => {
 
-        var url = process.env.REACT_APP_BASE_URL + '/keyword/' + query
+        var url = process.env.REACT_APP_BASE_URL + '/search?data=' + query
 
         try {
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/json',
                     'Authorization': `${authHeader()}`
                 },
             })
 
-            const parseRes = await response.json()
-            setData(parseRes)
+            // const parseRes = await response.json()
+            setData(response)
+
+            console.log(response)
 
         } catch (err) {
+
+            console.log(err)
 
         }
 
@@ -47,14 +51,14 @@ const Search = ({ setHabitId, setHabitName, id }) => {
                 </div>
             </div>
             <div className='bg-white rounded-sm'>
-                {data.map((habit) => {
+                {/* {data.map((habit) => {
                     return (
                         <h2
                             key={habit.id}
                             className='px-4 py-2 hover:cursor-pointer hover:pl-5 transition-all'
                         >{habit.name}</h2>
                     )
-                })}
+                })} */}
             </div>
         </div>
     )

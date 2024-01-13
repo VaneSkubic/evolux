@@ -23,7 +23,11 @@ const Feed = () => {
             const parseRes = await response.json()
             setData(parseRes.data)
 
+            console.log(parseRes)
+
         } catch (err) {
+
+            console.log(err)
 
         }
 
@@ -35,7 +39,7 @@ const Feed = () => {
 
 
     return (
-        <div className='py-8 gap-4 w-full h-full overflow-y-scroll flex flex-col items-center '>
+        <div className='py-8 bg-neutral-600 gap-4 w-full h-full overflow-y-scroll flex flex-col items-center '>
             {data.map((keyword) => {
                 return <Post
                     key={keyword.posts[0].id}

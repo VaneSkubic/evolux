@@ -28,9 +28,9 @@ const Post = ({ caption, image, id, key, isLiked }) => {
     }
 
     return (
-        <div className="w-2/3 flex gap-8 flex-col p-8 rounded-lg shadow-lg h-fit">
+        <div className="w-2/3 bg-neutral-800 flex gap-8 flex-col p-8 rounded-lg shadow-xl h-fit">
             <div className="flex flex-row justify-between items-center gap-4 caption-container">
-                <div className="flex row items-center">
+                <div className="flex row items-center text-white">
                     <h3>{caption}</h3>
                 </div>
                 <div class="like-button">
