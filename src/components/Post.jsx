@@ -12,15 +12,13 @@ const Post = ({ caption, image, id, isLiked }) => {
         setPostIsLiked(val => !val)
 
         try {
-            const response = await fetch(process.env.REACT_APP_BASE_URL + '/like/' + id, {
+            await fetch(process.env.REACT_APP_BASE_URL + '/like/' + id, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': `${authHeader()}`
                 },
             })
-
-            const parseRes = await response.json()
 
         } catch (err) {
             console.log(err.message)

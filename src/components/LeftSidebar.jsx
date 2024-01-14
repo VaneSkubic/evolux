@@ -1,4 +1,3 @@
-import { Link, Navigate, useNavigate } from "react-router-dom"
 import Search from "./Search"
 
 const LeftSidebar = ({ setData, setIsLoading }) => {

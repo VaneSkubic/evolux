@@ -1,9 +1,6 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
 import { useSignOut, useAuthHeader } from 'react-auth-kit'
 
 const RightSidebar = ({ getFeed }) => {
-    const [userData, setUserData] = useState()
 
     const signOut = useSignOut()
     const authHeader = useAuthHeader()

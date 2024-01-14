@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuthHeader } from 'react-auth-kit'
 
-const Search = ({ setHabitId, setHabitName, id, setData, setIsLoading }) => {
+const Search = ({ setData, setIsLoading }) => {
 
     const [query, setQuery] = useState('*')
 
@@ -19,7 +19,7 @@ const Search = ({ setHabitId, setHabitName, id, setData, setIsLoading }) => {
                 const response = await fetch(url, {
                     method: 'GET',
                     headers: {
-                        // 'Content-Type': 'application/json',
+                        'Content-Type': 'application/json',
                         'Authorization': `${authHeader()}`
                     },
                 })
