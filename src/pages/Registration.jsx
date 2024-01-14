@@ -56,8 +56,8 @@ const Registration = () => {
     }
 
     return (
-        <div className='flex flex-col justify-center items-center h-screen'>
-            <h1 className='pb-8 font-bold text-5xl'>Sign up</h1>
+        <div className='flex bg-neutral-700 flex-col justify-center items-center h-screen'>
+            <h1 className='pb-8 font-bold text-5xl text-white'>Sign up</h1>
             <div className="flex justify-center">
                 <div className="mb-3 xl:w-96">
                     <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
