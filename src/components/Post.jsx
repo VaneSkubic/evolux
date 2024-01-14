@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAuthHeader } from 'react-auth-kit'
 
-const Post = ({ caption, image, id, key, isLiked }) => {
+const Post = ({ caption, image, id, isLiked }) => {
 
     const authHeader = useAuthHeader()
 
@@ -19,7 +19,9 @@ const Post = ({ caption, image, id, key, isLiked }) => {
                     'Authorization': `${authHeader()}`
                 },
             })
+            console.log(response)
             const parseRes = await response.json()
+            console.log(parseRes)
 
         } catch (err) {
             console.log(err.message)
@@ -33,9 +35,9 @@ const Post = ({ caption, image, id, key, isLiked }) => {
                 <div className="flex row items-center text-white">
                     <h3>{caption}</h3>
                 </div>
-                <div class="like-button">
-                    <div class="heart-bg">
-                        <div onClick={onLikePost} class={postIsLiked ? "heart-icon liked" : "heart-icon"}></div>
+                <div className="like-button">
+                    <div className="heart-bg">
+                        <div onClick={onLikePost} className={postIsLiked ? "heart-icon liked" : "heart-icon"}></div>
                     </div>
                 </div>
             </div>

@@ -1,65 +1,59 @@
 import React, { useState, useEffect } from 'react'
 import { useAuthHeader } from 'react-auth-kit'
 
-const Search = ({ setHabitId, setHabitName, id }) => {
+const Search = ({ setHabitId, setHabitName, id, setData, setIsLoading }) => {
 
-    const [data, setData] = useState([])
     const [query, setQuery] = useState('*')
 
     const authHeader = useAuthHeader()
 
     const searchHabits = async () => {
 
-        var url = process.env.REACT_APP_BASE_URL + '/search?data=' + query
+        if (query) {
 
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    // 'Content-Type': 'application/json',
-                    'Authorization': `${authHeader()}`
-                },
-            })
+            setIsLoading(true)
 
-            // const parseRes = await response.json()
-            setData(response)
+            var url = process.env.REACT_APP_BASE_URL + '/search?data=' + query
 
-            console.log(response)
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        // 'Content-Type': 'application/json',
+                        'Authorization': `${authHeader()}`
+                    },
+                })
 
-        } catch (err) {
+                const parseRes = await response.json()
+                setIsLoading(false)
 
-            console.log(err)
+                if (Array.isArray(parseRes.data)) {
+                    setData(parseRes.data)
+                } else {
+                    console.log([parseRes.data])
+                    setData([{ posts: [parseRes.data] }])
+                }
 
-        }
+            } catch (err) {
 
-    }
+                console.log(err)
 
-    useEffect(() => {
-        if (query !== '') {
-            searchHabits()
+            }
         } else {
             setData([])
         }
-    }, [query])
 
+
+    }
 
     return (
         <div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-4">
                 <div className="input-group relative flex flex-wrap items-stretch w-full">
                     <input onChange={(e) => setQuery(e.target.value)} type="search" className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
                 </div>
             </div>
-            <div className='bg-white rounded-sm'>
-                {/* {data.map((habit) => {
-                    return (
-                        <h2
-                            key={habit.id}
-                            className='px-4 py-2 hover:cursor-pointer hover:pl-5 transition-all'
-                        >{habit.name}</h2>
-                    )
-                })} */}
-            </div>
+            <button onClick={searchHabits} className='bg-blue-500 w-full text-white hover:bg-neutral-100 font-semibold hover:text-blue-700 py-2 px-4 border border-blue-500 hover:border-transparent rounded'>Search</button>
         </div>
     )
 }
