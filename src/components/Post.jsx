@@ -9,6 +9,8 @@ const Post = ({ caption, image, id, isLiked }) => {
 
     const onLikePost = async () => {
 
+        console.log('oonLikePost')
+
         setPostIsLiked(val => !val)
 
         try {
@@ -34,7 +36,7 @@ const Post = ({ caption, image, id, isLiked }) => {
                 </div>
                 <div className="like-button">
                     <div className="heart-bg">
-                        <div onClick={onLikePost} className={postIsLiked ? "heart-icon liked" : "heart-icon"}></div>
+                        <div onClick={!postIsLiked ? onLikePost : undefined} className={postIsLiked ? "heart-icon liked" : "heart-icon"}></div>
                     </div>
                 </div>
             </div>

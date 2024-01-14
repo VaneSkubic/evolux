@@ -66,8 +66,12 @@ code {
     transition: all 100ms ease;
 }
 
-.like-button .heart-bg:hover {
+.like-button .heart-bg:not(:has(.liked)):hover {
     background: rgba(255, 192, 200, 0.7);
+}
+
+.liked:hover {
+    cursor: default;
 }
 
 .like-button {
