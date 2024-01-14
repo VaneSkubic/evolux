@@ -47,7 +47,7 @@ const HomePage = () => {
         <div className='w-full h-full flex flex-row'>
             <LeftSidebar setIsLoading={setIsLoading} setData={setData} />
             <Feed isLoading={isLoading} data={data} />
-            <RightSidebar />
+            <RightSidebar getFeed={getFeed} />
         </div>
     )
 }

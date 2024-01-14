@@ -5,8 +5,6 @@ import Post from './Post'
 
 const Feed = ({ data, isLoading }) => {
 
-    console.log(data)
-
     return (
         <div className='py-8 bg-neutral-600 gap-4 w-full h-full overflow-y-scroll flex flex-col items-center '>
             {

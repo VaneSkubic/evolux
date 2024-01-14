@@ -19,9 +19,8 @@ const Post = ({ caption, image, id, isLiked }) => {
                     'Authorization': `${authHeader()}`
                 },
             })
-            console.log(response)
+
             const parseRes = await response.json()
-            console.log(parseRes)
 
         } catch (err) {
             console.log(err.message)

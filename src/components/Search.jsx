@@ -28,10 +28,13 @@ const Search = ({ setHabitId, setHabitName, id, setData, setIsLoading }) => {
                 setIsLoading(false)
 
                 if (Array.isArray(parseRes.data)) {
+
                     setData(parseRes.data)
+
                 } else {
-                    console.log([parseRes.data])
+
                     setData([{ posts: [parseRes.data] }])
+
                 }
 
             } catch (err) {
